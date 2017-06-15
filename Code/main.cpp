@@ -74,27 +74,28 @@ void WhoWouldWin(char choice)
             cout<<"You :"<<choice<<"\tComputer :"<<com<<"\n";
         }
     }
+    else if(choice == 'E' || choice == 'e')
+    {
+        cout<<"\n\t\tExiting Game\n";
+    }
     //Invalid Choice
     else
     {
-        cout<<"I'm SMART, Enter right choice [ R , P , S ]\n";
+        cout<<"Enter right choice [ R , P , S ]\n";
     }
 
 }
 
 int main()
 {
-    char choice;
-    char request = 'Z';
-    while(request != 'E')
+    char choice = 'Z';
+    while(choice != 'E')
     {
         cout<<"\t\t[R]ock\t[P]aper\t[S]cissor\n";
         cin>>choice;
         choice = toupper(choice);
         WhoWouldWin(choice);
-        cout<<"\n\t\t[C]ontinue or [E]xit\n";
-        cin>>request;
-        request = toupper(request);
+        choice = toupper(choice);
     }
     return 0;
 }
