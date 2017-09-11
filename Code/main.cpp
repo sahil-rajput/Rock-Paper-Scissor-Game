@@ -2,7 +2,7 @@
 //generate random number
 int randomNo()
 {
-    int rand = 0;
+   int rand = 0;
    int minimum = 0, maximum = 2;
    random_device rd;
    mt19937 gen(rd());
@@ -14,6 +14,8 @@ int randomNo()
 
 void WhoWouldWin(char choice)
 {
+    //clear screen.
+    cout << "\033[2J\033[1;1H";
     //char array
     char option[3] = {'R', 'P', 'S'};
     int value = 0;
@@ -26,22 +28,24 @@ void WhoWouldWin(char choice)
     //If both are equal
     if(com == choice)
     {
-        cout <<"You both tied\n";
-        cout<<"You :"<<choice<<"\tComputer :"<<com<<"\n";
+        cout <<"\nYou both tied "<<"\t\t\t\tYou : "<<user_count<<" | "<<"Computer : "<<computer_count;
+        cout<<"\nYou : "<<choice<<"\tComputer : "<<com<<"\n";
     }
     else if (choice == 'R')
     {
         //Paper beats Rock
         if (com == 'P')
         {
-            cout<<"You lose\n";
-            cout<<"You :"<<choice<<"\tComputer :"<<com<<"\n";
+            ++computer_count;
+            cout<<"\nYou lose "<<"\t\t\t\tYou : "<<user_count<<" | "<<"Computer : "<<computer_count;
+            cout<<"\nYou : "<<choice<<"\tComputer : "<<com<<"\n";
         }
         //Rock beats Scissor
         else
         {
-            cout<<"You win \n";
-            cout<<"You :"<<choice<<"\tComputer :"<<com<<"\n";
+            ++user_count;
+            cout<<"\nYou win "<<"\t\t\t\tYou : "<<user_count<<" | "<<"Computer : "<<computer_count;
+            cout<<"\nYou : "<<choice<<"\tComputer : "<<com<<"\n";
         }
     }
     else if (choice == 'S')
@@ -49,14 +53,16 @@ void WhoWouldWin(char choice)
         //Rock beats Scissor
         if (com == 'R')
         {
-            cout<<"You lose\n";
-            cout<<"You :"<<choice<<"\tComputer :"<<com<<"\n";
+            ++computer_count;
+            cout<<"\nYou lose "<<"\t\t\t\tYou : "<<user_count<<" | "<<"Computer : "<<computer_count;
+            cout<<"\nYou : "<<choice<<"\tComputer : "<<com<<"\n";
         }
         //Scissor beats Paper
         else
         {
-            cout<<"You win\n";
-            cout<<"You :"<<choice<<"\tComputer :"<<com<<"\n";
+            ++user_count;
+            cout<<"\nYou win "<<"\t\t\t\tYou : "<<user_count<<" | "<<"Computer : "<<computer_count;
+            cout<<"\nYou : "<<choice<<"\tComputer : "<<com<<"\n";
         }
     }
     else if (choice == 'P')
@@ -64,38 +70,38 @@ void WhoWouldWin(char choice)
         //Scissor beats Paper
         if (com == 'S')
         {
-            cout<<"You lose\n";
-            cout<<"You :"<<choice<<"\tComputer :"<<com<<"\n";
+            ++computer_count;
+            cout<<"\nYou lose "<<"\t\t\t\tYou : "<<user_count<<" | "<<"Computer : "<<computer_count;
+            cout<<"\nYou : "<<choice<<"\tComputer : "<<com<<"\n";
         }
         //Paper beats Rock
         else
         {
-            cout<<"You win\n";
-            cout<<"You :"<<choice<<"\tComputer :"<<com<<"\n";
+            ++user_count;
+            cout<<"\nYou win "<<"\t\t\t\tYou : "<<user_count<<" | "<<"Computer : "<<computer_count;
+            cout<<"\nYou : "<<choice<<"\tComputer : "<<com<<"\n";
         }
-    }
-    else if(choice == 'E' || choice == 'e')
-    {
-        cout<<"\n\t\tExiting Game\n";
     }
     //Invalid Choice
     else
     {
-        cout<<"Enter right choice [ R , P , S ]\n";
+        cout<<"\nI'm [S]MART, Enter right choice [ R , P , S ]\n";
     }
 
 }
 
 int main()
 {
-    char choice = 'Z';
-    while(choice != 'E')
+    char choice;
+    char request = 'Z';
+    while(request != 'E')
     {
         cout<<"\t\t[R]ock\t[P]aper\t[S]cissor\n";
         cin>>choice;
         choice = toupper(choice);
         WhoWouldWin(choice);
-        choice = toupper(choice);
+        cout<<"\n\t\t\t\t\tPress [E] for Exit\n";
+        request = toupper(choice);
     }
     return 0;
 }
