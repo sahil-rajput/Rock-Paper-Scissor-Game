@@ -1,16 +1,17 @@
 #include "header.h"
+#include <ctime>
 //generate random number
-int randomNo()
-{
-   int rand = 0;
-   int minimum = 0, maximum = 2;
-   random_device rd;
-   mt19937 gen(rd());
-   uniform_int_distribution<> dis(minimum, maximum);
-   rand = dis(gen);
-   //return random number betwwen 0 and 2
-   return rand;
-}
+// int randomNo()
+// {
+//    int rand = 0;
+//    int minimum = 0, maximum = 2;
+//    random_device rd;
+//    mt19937 gen(rd());
+//    uniform_int_distribution<> dis(minimum, maximum);
+//    rand = dis(gen);
+//    //return random number betwwen 0 and 2
+//    return rand;
+// }
 
 void WhoWouldWin(char choice)
 {
@@ -20,7 +21,8 @@ void WhoWouldWin(char choice)
     char option[3] = {'R', 'P', 'S'};
     int value = 0;
     //initialize with random value
-    value = randomNo();
+   srand(time(NULL));
+    value = rand();
     //0 -> R
     //1 -> P
     //2 -> S
